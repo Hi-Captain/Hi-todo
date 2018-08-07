@@ -16,7 +16,8 @@ class Todo extends Component {
       <div className="main">
         Hi-Todo
         <div className="add-wrap" onKeyPress={this._EnterKey}>
-          <input type="text" name="todo" placeholder="New ToDo" value={Add_text} onChange={this._typing}/>
+          <input type="text" name="todo" placeholder="New ToDo" 
+                 value={Add_text} onChange={this._typing}/>
           <button onClick={this._todo_add}>Add</button>
         </div>
         <div> {/* 리스트 테스트 */}
@@ -24,7 +25,12 @@ class Todo extends Component {
             리스트입니다.
             {Todo_list.map((value, i) => {
               return (
-                <Item className="todo" key={i} todo_id={value.id} todo_text={value.text} />
+                <Item 
+                  className="todo" 
+                  key={i} 
+                  todo_id={value.id} 
+                  todo_text={value.text} 
+                  todo_del={this._todo_del} />
               )
             })}
           </div>
@@ -51,12 +57,21 @@ class Todo extends Component {
     const {Todo_list, Add_text} = this.state
     const list = Todo_list,
           item = {
-            id: Todo_list.length + 1,
+            id: Todo_list.length,
             text: Add_text
           }
     this.setState({
       Todo_list : list.concat(item),
       Add_text: ''
+    })
+  }
+
+  _todo_del = (id) => {
+    const {Todo_list} = this.state
+    const list = Todo_list
+    delete list[id]
+    this.setState({
+      Todo_list : list
     })
   }
 }
