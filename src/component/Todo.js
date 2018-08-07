@@ -6,7 +6,7 @@ class Todo extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Todo_list : [],
+      Todo_list : [{id: 0, text: '고양이 밥주기'}],
       Add_text : ''
     }
   }
@@ -30,7 +30,8 @@ class Todo extends Component {
                   key={i} 
                   todo_id={value.id} 
                   todo_text={value.text} 
-                  todo_del={this._todo_del} />
+                  todo_del={this._todo_del}
+                  todo_edit={this._todo_edit} />
               )
             })}
           </div>
@@ -55,6 +56,7 @@ class Todo extends Component {
 
   _todo_add = () => {
     const {Todo_list, Add_text} = this.state
+
     const list = Todo_list,
           item = {
             id: Todo_list.length,
@@ -68,8 +70,19 @@ class Todo extends Component {
 
   _todo_del = (id) => {
     const {Todo_list} = this.state
+
     const list = Todo_list
     delete list[id]
+    this.setState({
+      Todo_list : list
+    })
+  }
+  
+  _todo_edit = (id, txt) => {
+    const {Todo_list} = this.state
+
+    const list = Todo_list
+    list[id].text = txt
     this.setState({
       Todo_list : list
     })
