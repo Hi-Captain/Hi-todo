@@ -6,7 +6,7 @@ class Todo extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Todo_list : [{id: 0, text: '고양이 밥주기'}],
+      Todo_list : [{id: 0, text: '고양이 밥주기', complete: false}],
       Add_text : ''
     }
   }
@@ -15,7 +15,7 @@ class Todo extends Component {
     return (
       <div className="main">
         Hi-Todo
-        <div className="add-wrap" onKeyPress={this._EnterKey}>
+        <div className="add-wrap" onKeyPress={this._enterKey}>
           <input type="text" name="todo" placeholder="New ToDo" 
                  value={Add_text} onChange={this._typing}/>
           <button onClick={this._todo_add}>Add</button>
@@ -26,18 +26,19 @@ class Todo extends Component {
             {Todo_list.map((value, i) => {
               return (
                 <Item 
-                  className="todo" 
                   key={i} 
                   todo_id={value.id} 
                   todo_text={value.text} 
+                  todo_complete={value.complete}
                   todo_del={this._todo_del}
-                  todo_edit={this._todo_edit} />
+                  todo_edit={this._todo_edit}
+                  todo_doComplete={this._todo_doComplete} />
               )
             })}
           </div>
-          <div>
-           들어갈 것 : {Add_text}
-          </div>
+          {/* <div>
+           들어갈 것 : {Add_text} 
+          </div> */}
         </div>
       </div>
     );
@@ -48,29 +49,28 @@ class Todo extends Component {
     })
   }
 
-  _EnterKey = (e) => {
+  _enterKey = (e) => {
     if(e.key === 'Enter'){
       this._todo_add()
     }
   }
 
   _todo_add = () => {
-    const {Todo_list, Add_text} = this.state
-
-    const list = Todo_list,
-          item = {
-            id: Todo_list.length,
-            text: Add_text
-          }
-    this.setState({
-      Todo_list : list.concat(item),
-      Add_text: ''
-    })
+    if(this.state.Add_text !== ''){
+      const {Todo_list, Add_text} = this.state
+      this.setState({
+        Add_text: '',
+        Todo_list : Todo_list.concat({
+                      id: Todo_list.length,
+                      text: Add_text,
+                      complete: false
+                    })
+      })
+    }
   }
 
   _todo_del = (id) => {
     const {Todo_list} = this.state
-
     const list = Todo_list
     delete list[id]
     this.setState({
@@ -80,9 +80,17 @@ class Todo extends Component {
   
   _todo_edit = (id, txt) => {
     const {Todo_list} = this.state
-
     const list = Todo_list
     list[id].text = txt
+    this.setState({
+      Todo_list : list
+    })
+  }
+
+  _todo_doComplete = (id) => {
+    const {Todo_list} = this.state
+    const list = Todo_list
+    list[id].complete = !list[id].complete
     this.setState({
       Todo_list : list
     })

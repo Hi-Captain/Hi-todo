@@ -4,3 +4,13 @@
   font-size: 16px;
   padding: 0;
 }
+
+.complete {
+  color: #ccc;
+  opacity: .6;
+  text-decoration: line-through;
+}
+
+.completeBtn{
+  cursor: pointer;
+}

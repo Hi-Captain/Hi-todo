@@ -34,3 +34,11 @@ Make ToDo-list with React
            Todo같은 거야 10개 20개 정도면 충분하다지만, 
            규모가 더 커지게 됬을 때, 이런 알고리즘이 성능상의 문제는 없는걸까..?
            일단은 Add, Delete, Edit 까지 완료됬으니, complete 기능을 만들어보자.
+
+> 2018.08.07
+  - title : Todo Complete
+  - content : 여전히 비슷한 방법으로 list 상태에 들어가는 item 객체에 complete 속성을 추가해서 
+              true, false 값을 변환하면서 CSS로 UI 전환.
+              _todo_add에서 빈문자열은 todo생성 제한.
+  - idea : props에 함수를 넘겼다가 다시 받아내는 식으로 계속 작업을 하고 있는데, 좀 더 괜찮은 방법이 있으려나..?
+           일단 기능들은 다 갖춰진 것 같으니 CSS작업을 조금 제대로 해보자.
