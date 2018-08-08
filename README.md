@@ -42,3 +42,10 @@ Make ToDo-list with React
               _todo_add에서 빈문자열은 todo생성 제한.
   - idea : props에 함수를 넘겼다가 다시 받아내는 식으로 계속 작업을 하고 있는데, 좀 더 괜찮은 방법이 있으려나..?
            일단 기능들은 다 갖춰진 것 같으니 CSS작업을 조금 제대로 해보자.
+
+> 2018.08.08
+  - title : Add CSS
+  - content : Google material design 에서 아이콘 받아오기, unsplash에서 배경 받아오기,
+              레이아웃 정리를 위해 jsx 코드 수정
+  - idea : 어느정도 css는 갖춰진 것 같은데, edit 할 때 edit를 취소하는 기능이 빠져있었다!
+           edit 부분을 정리해보자.

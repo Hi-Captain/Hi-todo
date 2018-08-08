@@ -14,31 +14,25 @@ class Todo extends Component {
     const {Todo_list, Add_text} = this.state
     return (
       <div className="main">
-        Hi-Todo
+        <h1 className="title">Hi-Todo</h1>
         <div className="add-wrap" onKeyPress={this._enterKey}>
-          <input type="text" name="todo" placeholder="New ToDo" 
+          <input className="add__input" type="text" name="todo" placeholder="New ToDo" 
                  value={Add_text} onChange={this._typing}/>
-          <button onClick={this._todo_add}>Add</button>
+          <button className="add__btn" onClick={this._todo_add}>Add</button>
         </div>
-        <div> {/* 리스트 테스트 */}
-          <div>
-            리스트입니다.
-            {Todo_list.map((value, i) => {
-              return (
-                <Item 
-                  key={i} 
-                  todo_id={value.id} 
-                  todo_text={value.text} 
-                  todo_complete={value.complete}
-                  todo_del={this._todo_del}
-                  todo_edit={this._todo_edit}
-                  todo_doComplete={this._todo_doComplete} />
-              )
-            })}
-          </div>
-          {/* <div>
-           들어갈 것 : {Add_text} 
-          </div> */}
+        <div className="list-wrap">
+          {Todo_list.map((value, i) => {
+            return (
+              <Item 
+                key={i} 
+                todo_id={value.id} 
+                todo_text={value.text} 
+                todo_complete={value.complete}
+                todo_del={this._todo_del}
+                todo_edit={this._todo_edit}
+                todo_doComplete={this._todo_doComplete} />
+            )
+          })}
         </div>
       </div>
     );

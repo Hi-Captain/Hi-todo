@@ -10,14 +10,17 @@ export default class Item extends Component {
   }
   render() {
     const { isEdit } = this.state
-    const { todo_id, todo_text, todo_complete} = this.props
+    const { todo_text, todo_complete} = this.props
     return (
       <div className={todo_complete ? "todo complete" : "todo"}>
-        <div>id : {todo_id}</div>
-        <div className="completeBtn" onClick={this._go_complete}>complete : {todo_complete ? <span>☑︎</span> : <span>□</span>}</div>
-        <div>text : {isEdit ? <input className="isEditing" type="text" value={todo_text} onChange={this._go_edit} onKeyPress={this._enterKey} autoFocus/> : <span>{todo_text}</span>}</div>
-        <button onClick={this._set_edit}>{isEdit ? 'confirm' : 'edit'}</button>
-        <button onClick={this._go_del}>del</button>
+        <div className="todo__circle" onClick={this._go_complete}><span className="check-mark"></span></div>
+        <div className="todo__row">
+          <div className="todo__row-text">{isEdit ? <input className="isEditing" type="text" value={todo_text} onChange={this._go_edit} onKeyPress={this._enterKey} autoFocus/> : <span className="Edited">{todo_text}</span>}</div>
+          <div className="btn-wrap">
+            <i onClick={this._set_edit} className="todo__row-btn menu__link-icon material-icons">{isEdit ? 'done' : 'edit'}</i>
+            <i onClick={this._go_del} className="todo__row-btn menu__link-icon material-icons">delete</i>
+          </div>
+        </div>
       </div>
     );
   }
