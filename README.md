@@ -49,3 +49,17 @@ Make ToDo-list with React
               레이아웃 정리를 위해 jsx 코드 수정
   - idea : 어느정도 css는 갖춰진 것 같은데, edit 할 때 edit를 취소하는 기능이 빠져있었다!
            edit 부분을 정리해보자.
+
+> 2018.08.09
+  - title : Todo Edit Upgrade
+  - content : edit 취소 기능 추가.
+              cancel_editing과, typing을 추가 및 go_edit를 set_edited로 수정.
+              cancel 키보드 기능을 위해 enterkey를 listenKey로 수정.
+              cancel에 esc key활성화 위해 keyPress => keyUp으로 수정.
+              Todo text max length 지정.
+              각 item 에 mouseover 로 기능버튼 노출.
+  - idea : 에디트 취소를 위해서 text값을 임시로 받을 상태가 필요해서, 결국 함수를 2개 더 만들 수 밖에 없었다.
+           KeyDown KeyUp KeyPress .. Key관련해서 공부를 좀 다시 해봐야겠다.
+           이제 거의 다 완성한 것 같다.
+           todo list를 저장하고 불러오는 작업만 하면 될 것 같다.
+           ajax로 db없이 간단하게 구현하면 될 것 같은데...

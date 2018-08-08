@@ -35,23 +35,40 @@
   box-sizing: content-box;
 }
 
-.todo__row-text{
-  width: 77%;
+.todo__row-text{  
+  width: 100%;
   height: 100%;
   display: inline-block;
   font-size: 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition-duration: .3s;
+}
+
+.todo__row:hover .todo__row-text{
+  width: 77%;
 }
 
 .btn-wrap{
-  width: 23%;
+  width: 0;
+  height: inherit;
   float: right;
+  overflow: hidden;
+  transition-duration: .3s;
 }
+
+.todo__row:hover .btn-wrap{
+  width: 23%;
+}
+
 .todo__row-btn{
   color: #359ba8;
   cursor: pointer;
   font-size: 1.8rem;
   line-height: 3.4rem;
 }
+
 .todo__row-btn:first-child{
   margin-right: 1rem;
 }

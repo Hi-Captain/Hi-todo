@@ -17,7 +17,7 @@ class Todo extends Component {
         <h1 className="title">Hi-Todo</h1>
         <div className="add-wrap" onKeyPress={this._enterKey}>
           <input className="add__input" type="text" name="todo" placeholder="New ToDo" 
-                 value={Add_text} onChange={this._typing}/>
+                 value={Add_text} maxLength={12} onChange={this._typing}/>
           <button className="add__btn" onClick={this._todo_add}>Add</button>
         </div>
         <div className="list-wrap">
