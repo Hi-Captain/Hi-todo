@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import '../css/Todo.css';
 import Item from './Item';
+import axios from 'axios';
 
 class Todo extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Todo_list : [{id: 0, text: '고양이 밥주기', complete: false}],
+      Todo_list : [],
       Add_text : ''
     }
   }
+
+  componentDidMount(){
+    axios.get("./list.json")
+    .then(response => {
+      const list_data = response.data.list
+      this.setState({
+        Todo_list: list_data
+      })
+    })
+    .catch( err => {console.log(err.stack)});
+  }
+
   render() {
     const {Todo_list, Add_text} = this.state
     return (

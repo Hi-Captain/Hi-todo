@@ -63,3 +63,20 @@ Make ToDo-list with React
            이제 거의 다 완성한 것 같다.
            todo list를 저장하고 불러오는 작업만 하면 될 것 같다.
            ajax로 db없이 간단하게 구현하면 될 것 같은데...
+
+> 2018.08.09
+  - title : Read Json & Finish
+  - content : componentDidMount에서 axios로 json파일의 리스트 받기.
+              마무리.
+  - idea : 아직까지 데이터 통신에 대한 이해도가 부족한 것 같다.
+           읽어오는 것 까진 성공했는데, 저장이 안된다.
+           componentDidMount에서 읽고, 나중에 componentWillUnmount 에서
+           그 때 Todo_list 상태를 list.json파일에 덮어쓰고 싶었는데,
+           열심히 찾아보긴 했지만 내가 제대로 찾은게 맞다면
+           아무래도 보안상의 이유로 브라우저에서 바로 로컬 파일에 대한 수정은 불가능한 것 같다.
+           그런 이유로 다음 프로젝트 기획은 잠시 미뤄두고 다시 공부를 조금 시작해야 될 것 같다.
+           백엔드쪽 지식을 쌓고나서 좀 더 완성도 높은 프로젝트를 진행해보자.
+
+           
+
+           

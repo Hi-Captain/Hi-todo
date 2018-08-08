@@ -1,0 +1,27 @@
+{
+  "list" : [{
+    "id" : 0, 
+    "text" : "방 청소하기", 
+    "complete" : false
+  },
+  {
+    "id" : 1, 
+    "text" : "크루 화장실 청소하기", 
+    "complete" : false
+  },
+  {
+    "id" : 2, 
+    "text" : "크루 밥 먹이기", 
+    "complete" : false
+  },
+  {
+    "id" : 3, 
+    "text" : "크루 약 먹이기", 
+    "complete" : false
+  },
+  {
+    "id" : 4, 
+    "text" : "크루랑 놀아주기", 
+    "complete" : false
+  }]
+}
